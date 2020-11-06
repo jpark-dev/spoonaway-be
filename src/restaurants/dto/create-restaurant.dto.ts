@@ -1,6 +1,8 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { ArgsType, Field } from '@nestjs/graphql';
 
-@InputType()
+// inputType() one object to pass to graphQL as an argument.
+// argsType() several values can be passed to graphQL without being an object
+@ArgsType()
 export class CreateRestaurantDto {
   @Field(typeIs => String)
   name: string;
