@@ -10,6 +10,10 @@ export class RestaurantResolver {
     return [];
   }
   @Mutation(returns => Boolean)
+  // leaving Args() empty and use ArgsType() instead of inputType() in DTO,
+  // accepts/returns values directly without being in createRestaurantData :
+  // Before: {createRestaurantData: {name: ..., address: ...}}
+  // After: {name: ..., address: ...}
   createRestaurant(@Args() createRestaurantData: CreateRestaurantDto): Boolean {
     console.log(createRestaurantData);
     return true;
