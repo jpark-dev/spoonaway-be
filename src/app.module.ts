@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { RestaurantsModule } from './restaurants/restaurants.module';
 
 @Module({
@@ -10,6 +10,16 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
       autoSchemaFile: true,
     }),
     RestaurantsModule,
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: '',
+      port: 5432,
+      username: 'postgres',
+      password: '',
+      database: 'spoonaway',
+      synchronize: true,
+      logging: true,
+    }),
   ],
   controllers: [],
   providers: [],
