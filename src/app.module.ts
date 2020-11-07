@@ -13,8 +13,8 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
     RestaurantsModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: process.env.ENV === 'dev' ? '.env.dev' : '.env.test',
-      ignoreEnvFile: process.env.ENV === 'prod',
+      envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.test',
+      ignoreEnvFile: process.env.NODE_ENV === 'prod',
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
