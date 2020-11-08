@@ -18,7 +18,7 @@ export class RestaurantResolver {
   // Before: {createRestaurantData: {name: ..., address: ...}}
   // After: {name: ..., address: ...}
   async createRestaurant(
-    @Args() createRestaurantData: CreateRestaurantDto,
+    @Args('input') createRestaurantData: CreateRestaurantDto,
   ): Promise<Boolean> {
     try {
       await this.restaurantService.createRestaurant(createRestaurantData);
