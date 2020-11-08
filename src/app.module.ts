@@ -37,7 +37,7 @@ import { Restaurant } from './restaurants/entities/restaurant.entity';
       // synchronize: true,
       // set to false if in production
       synchronize: process.env.NODE_ENV !== 'prod',
-      logging: true,
+      logging: process.env.NODE_ENV !== 'prod',
       entities: [Restaurant],
     }),
   ],
