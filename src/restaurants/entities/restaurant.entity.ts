@@ -1,31 +1,28 @@
 import { Field, ObjectType } from '@nestjs/graphql';
+import { IsBoolean, IsString, Length } from 'class-validator';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @ObjectType()
 @Entity()
 export class Restaurant {
   // '() =>' can be replaced with 'typeIs =>'
-  @Field(typeIs => Number)
   @PrimaryGeneratedColumn()
+  @Field(type => Number)
   id: number;
 
-  @Field(typeIs => String)
+  @Field(type => String)
   @Column()
+  @IsString()
+  @Length(5)
   name: string;
 
-  @Field(typeIs => Boolean, { nullable: true })
+  @Field(type => Boolean)
   @Column()
-  isGood?: Boolean;
+  @IsBoolean()
+  isGood: Boolean;
 
   @Field(typeIs => String)
   @Column()
+  @IsString()
   address: string;
-
-  @Field(typeIs => String)
-  @Column()
-  ownerName: string;
-
-  @Field(typeIs => String)
-  @Column()
-  categoryName: string;
 }
