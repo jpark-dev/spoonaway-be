@@ -22,6 +22,7 @@ export class RestaurantResolver {
   ): Promise<Boolean> {
     try {
       await this.restaurantService.createRestaurant(createRestaurantData);
+      return true;
     } catch (e) {
       console.log(e);
       return false;
