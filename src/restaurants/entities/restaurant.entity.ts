@@ -22,7 +22,7 @@ export class Restaurant {
   @IsBoolean() // validation
   isGood: Boolean;
 
-  @Field(typeIs => String)
+  @Field(type => String)
   @Column()
   @IsString()
   address: string;
