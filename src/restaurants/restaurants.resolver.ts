@@ -17,7 +17,14 @@ export class RestaurantResolver {
   // accepts/returns values directly without being in createRestaurantData :
   // Before: {createRestaurantData: {name: ..., address: ...}}
   // After: {name: ..., address: ...}
-  createRestaurant(@Args() createRestaurantData: CreateRestaurantDto): Boolean {
-    return true;
+  async createRestaurant(
+    @Args() createRestaurantData: CreateRestaurantDto,
+  ): Promise<Boolean> {
+    try {
+      await this.restaurantService.createRestaurant(createRestaurantData);
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
   }
 }
