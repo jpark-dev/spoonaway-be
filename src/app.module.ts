@@ -13,7 +13,6 @@ import { UsersModule } from './users/users.module';
       // autoSchemaFile: join(process.cwd(), 'src/schema.gql'), could be simply replaced with 'true'
       autoSchemaFile: true,
     }),
-    RestaurantsModule,
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.test',
@@ -39,7 +38,7 @@ import { UsersModule } from './users/users.module';
       // set to false if in production
       synchronize: process.env.NODE_ENV !== 'prod',
       logging: process.env.NODE_ENV !== 'prod',
-      entities: [Restaurant],
+      entities: [],
     }),
     UsersModule,
   ],
