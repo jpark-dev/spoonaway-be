@@ -1,17 +1,15 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity } from 'typeorm';
 
-type UserRole = "client" | "owner" | "delivery";
+type UserRole = 'client' | 'owner' | 'delivery';
 
 @Entity()
 export class User {
+  @Column()
+  email: string;
 
-    @Column()
-    email: string,
+  @Column()
+  password: string;
 
-    @Column()
-    password: string,
-
-    @Column()
-    role: UserRole,
-
+  @Column()
+  role: UserRole;
 }
