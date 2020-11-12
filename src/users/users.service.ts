@@ -36,11 +36,25 @@ export class UsersService {
     email,
     password,
   }: LoginInput): Promise<{ ok: boolean; error?: string; token?: string }> {
-    // find user with email
     // check if pwd matches
     // make a JWT and pass it to the client
 
     try {
+      const user = await this.users.findOne({ email });
+      if (!user) {
+        return { ok: false, error: 'User does not exist.' };
+      }
+      const isPasswordCorret = await user.checkPassword(password);
+      if (!isPasswordCorret) {
+        return {
+          ok: false,
+          error: 'Wrong password.',
+        };
+      }
+      return {
+        ok: true,
+        token: 'correct password! Here is your token.',
+      };
     } catch (error) {
       return {
         ok: false,
