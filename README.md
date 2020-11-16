@@ -14,6 +14,7 @@ The backend of Spoon Away, a food ordering platform.
 - Joi
 - PostgreSQL
 - Bcrypt
+- JWT
 
 ## Testing
 
